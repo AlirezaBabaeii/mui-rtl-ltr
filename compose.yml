@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: ./next-app
+      dockerfile: prod-without-multistage.Dockerfile
+    restart: always
+    ports:
+      - 6000:6000
+    networks:
+      - my_network
+  my_network:
+    external: true
